@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="generator" content="Jekyll v4.0.1">
+    <title>CS Geeks | Admin Panel</title>
+    <link rel="icon" href="../static/favicon.ico">
+    <link rel="stylesheet" href="../static/dark-mode.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/blog/">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Bootstrap core CSS -->
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../static/blog.css" rel="stylesheet">
+    <link href="../static/spinkit.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/pace-theme-minimal.css">
+    <script src="../static/pace.js"></script>
+    <script src="app.js"></script>
+    <script src="admin.js"></script>
+  </head>
+  <body onload="adminpageload()">
+    <div class="container-fluid mt-n5 pt-3 mb-n4">
+      <div class="container-fluid text-center d-inline">
+    <nav class="navbar justify-content-between mb-n3">
+      <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+      <div class="d-inline-flex">
+        <a href="../index.html" class="text-center blog-header-logo" id="header-name">CS Geeks</a>
+      </div>
+      
+      <label class="btn rounded-circle py-2 mt-2 mr-n4" id="labeldarkMode" style="width: 45px; height: auto;"><img src="../static/moon-4x.png" width="100%">
+        <input class="invisible" type="checkbox" name="darkMode" id="darkSwitch" style="display: none;" >
+      </label>
+      <!-- <input type="button" class="btn btn-dark btn-group-lg" name="darkMode" id="darkSwitch" value="Dark Mode" onclick="resetTheme()"> -->
+    </nav>
+    <hr class="container-fluid ml-n3 mt-2" style="background-color: white;">
+    </div>
+    </div>
+    <main>
+    <div class="container">
+<div class="py-1 mb-2"></div>
+  <div class="container text" id="d-1" style="font-size:calc(40px - 1.5vw);">
+    <div class="container text-center" id="admin-page-top">
+        <div class="sk-chase mt-4 sk-center">
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+          <div class="sk-chase-dot"></div>
+        </div>
+    </div>
+    <ul id="admin-list">
+    </ul>
+    <br>
+    <div class="container text-center" id="loginbtnappear"></div>
+    <div class="container text-center">
+      <!-- style="list-style-type:none;" -->
+    <input class="btn btn-success form-control-lg mt-2" id="logout-btn-admin" type="submit" value="logout" onclick="logoutinadmin()" hidden>
+    </div>
+    <div class="row mb-2" id="d-2"></div>
+  </div>
+</div>
+
+<footer class="blog-footer mt-5" id="blog-footer">
+  <p>Official Blog of <a href="../index.html">CS Geeks</a></p>
+  <p class="mt-n3">by <a href="../author.html?name=RedRanger">RedRanger</a></p>
+  <p>
+    <a href="javascript:;" id="backtotop">Back to top</a>
+  </p>
+</footer>
+</main>
+<script>
+  backtotop = document.getElementById('backtotop');
+    backtotop.addEventListener('click', () => {
+        window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+        });
+        console.log('backtotop clicked');
+    }
+    );
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="../static/dark-mode-switch.js"></script>
+</body>
+</html>
