@@ -62,7 +62,7 @@ window.onload = function(){
     }
     if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
         // console.info( "This page is reloaded" );
-        window.location.href='/';
+        window.location.href='/csgeeksblog/';
     }
     //function for action for hovering above dropdown button
     $('#dropdown-btn,.dropdown-menu').hover(function() {
