@@ -24,7 +24,7 @@ const loginpageload =()=>{
             document.getElementById('login-btn').disabled = true;
             document.getElementById('response-msg').innerHTML='--> Successfully Logged In <--<br>(redirecting to admin page shortly...)';
             timedRedirect=setTimeout(function(){
-                document.location.href='/csgeeksblog/admin/admin.html';
+                document.location.href='/csgeeksblog/admin/admin';
             },3000)
         }
         else{
@@ -99,7 +99,7 @@ const login=()=>{
             </div><br>
             `;
             timedRedirect=setTimeout(function(){
-                document.location.href='/csgeeksblog/admin/admin.html';
+                document.location.href='/csgeeksblog/admin/admin';
             },3000)
         }
         else{
@@ -117,7 +117,7 @@ const login=()=>{
             </div><br>
             `;
             timedRedirect=setTimeout(function(){
-                document.location.href='/csgeeksblog/admin/admin.html';
+                document.location.href='/csgeeksblog/admin/admin';
             },3000)
         }else{
             document.getElementById('login-btn').disabled = false;

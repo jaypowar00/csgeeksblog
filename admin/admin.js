@@ -27,10 +27,10 @@ const adminpageload=()=>{
             document.getElementById('logout-btn-admin').hidden = false;
             document.getElementById('admin-page-top').innerHTML='<h2>Welcome '+res.data['author']+'</h2>';
             document.getElementById('admin-list').innerHTML=`
-            <li><div><a href="create.html">Create Post</a></div></li>
-            <li><div><a href="update.html">Update Posts</a></div></li>
-            <li><div><a href="delete.html">Delete Post</a></div></li>
-            <li><div><a href="deleteall.html">Delete All Posts</a></div></li>
+            <li><div><a href="/csgeeksblog/admin/create">Create Post</a></div></li>
+            <li><div><a href="/csgeeksblog/admin/update">Update Posts</a></div></li>
+            <li><div><a href="/csgeeksblog/admin/delete">Delete Post</a></div></li>
+            <li><div><a href="/csgeeksblog/admin/deleteall">Delete All Posts</a></div></li>
             `;
         }else{
             document.cookie= 'access_token_cookie=; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
