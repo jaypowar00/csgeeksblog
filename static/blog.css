@@ -82,11 +82,18 @@ h1, h2, h3, h4, h5, h6 {
     transform: translate(5px);
     background-color: aqua;
   }
+  #profilephoto {
+    text-align:center;
+  }
 }
 @media (max-width: 387px) and (min-width: 344px) {
   #search-input {
     transform: translate(5px);
     width: 150px;
+  }
+  #profilephoto {
+    width:90%;
+    text-align:center;
   }
 }
 @media(min-width: 387px) {
@@ -94,6 +101,13 @@ h1, h2, h3, h4, h5, h6 {
     transform: translate(5px);
     width: 50vw;
   }
+  #profilephoto {
+    width:100%;
+    text-align:center;
+  }
+}
+@media(min-width: 768px) {
+  #profilephoto { width:fit-content; }
 }
 @media (min-width: 992px) {
   #blog-cards { height: 200px; }
@@ -190,3 +204,14 @@ h1, h2, h3, h4, h5, h6 {
 .blog-footer p:last-child {
   margin-bottom: 0;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(116, 116, 116, 0.671);
+  border-radius: 30px;
+}
+

@@ -50,9 +50,8 @@ function getData(id){
             tags = response.data.article.tags;
             tag = '';
             for(let i in tags){
-                tag += '<a style="color:inherit; display:inline" class="text-success" href="/?tag='+tags[i]+'"> '+tags[i]+' </a>';
+                tag += '<a style="color:inherit; display:inline" class="text-success" href="/csgeeksblog?tag='+tags[i]+'"> #'+tags[i]+' </a>';
             }
-            var md = new Remarkable();
             // console.log(response.data.article)
             var c = response.data.article.content;
             var vlink = response.data.article.vlink;
@@ -63,7 +62,7 @@ function getData(id){
                 </div>
                 `;
             }else{link='';}
-            c = md.render(c);
+            c = marked(c);
             let d = new Date(Date.parse(response.data.article.created))
             // console.log(d.toDateString())
             top.document.title = response['data']['article']['title'];
@@ -78,7 +77,7 @@ function getData(id){
                     <div class="p-4 d-flex flex-column overflow-hidden">
                         <div class="mt-n3 mb-n1 text-muted text-right">`+d.toDateString()+`</div>
                         <h3 class="mb-0">`+response['data']['article']['title']+`</h3>
-                        <a style="color:inherit;" class="block" href="author?name=`+response['data']['article']['author']+`">
+                        <a style="color:inherit;" class="block" href="/csgeeksblog/author?name=`+response['data']['article']['author']+`">
                         <div class="mb-1 text-info">`+response['data']['article']['author']+`</div>
                         </a>
                         <span>

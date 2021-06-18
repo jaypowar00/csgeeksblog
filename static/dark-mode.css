@@ -198,3 +198,9 @@
   background-image: none;
   color: rgb(200, 200, 200);
 }
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.425);
+}
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: rgba(129, 129, 129, 0.425);
+}

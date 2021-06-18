@@ -108,7 +108,7 @@ function getData(tag=undefined,author=undefined,orderby='created',order='desc',s
         if(blog_tags.length>0){
             document.getElementById('navbarscroller').innerHTML=
             `
-            <label for="navbar-tags" class="d-inline-flex"><span class="p-2 text-muted">Tags:</span>
+            <label for="navbar-tags" class="d-inline-flex scrollable-tags"><span class="p-2 text-muted">Tags:</span>
             <nav class="nav justify-content-start" id="navbar-tags" >
               
             </nav>
@@ -356,8 +356,7 @@ function getData(tag=undefined,author=undefined,orderby='created',order='desc',s
                     <div class="mb-1 text-info">`+response.data.articles[index].author+`</div>
                     </a>
                     <a style="color:inherit;" class="block" href="/csgeeksblog/post?id=`+response.data.articles[index]._id+`">
-                    <p class="card-text mb-auto">`+description+`</p>
-                    <p class="card-text mb-auto">Click to see detail...</p>
+                    <p class="card-text mb-auto">`+description+`...</p>
                     </a>
                     </div>
                     <div class="d-lg-block" id="tb-1">
@@ -460,8 +459,7 @@ function getData(tag=undefined,author=undefined,orderby='created',order='desc',s
                     <div class="mb-1 text-info">`+response.data.articles[index].author+`</div>
                     </a>
                     <a style="color:inherit;" class="block" href="/csgeeksblog/post?id=`+response.data.articles[index]._id+`">
-                    <p class="card-text mb-auto">`+description+`</p>
-                    <p class="card-text mb-auto">Click to see detail...</p>
+                    <p class="card-text mb-auto">`+description+`...</p>
                     </a>
                     </div>
                     <div class="d-lg-block" id="tb-1">
@@ -564,8 +562,7 @@ function getData(tag=undefined,author=undefined,orderby='created',order='desc',s
                 <div class="mb-1 text-info">`+response.data.articles[index].author+`</div>
                 </a>
                 <a style="color:inherit;" class="block" href="/csgeeksblog/post?id=`+response.data.articles[index]._id+`">
-                <p class="card-text mb-auto">`+description+`</p>
-                <p class="card-text mb-auto">Click to see detail...</p>
+                <p class="card-text mb-auto">`+description+`...</p>
                 </a>
                 </div>
                 <div class="d-lg-block" id="tb-1">

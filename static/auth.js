@@ -43,10 +43,10 @@ const filterBy=(tag)=>{
         console.log(error);
     }
     if (name){
-    window.location.href='/?author='+name+'&tag='+tag;
+    window.location.href='/csgeeksblog?author='+name+'&tag='+tag;
     }
     else
-    window.location.href='/?tag='+tag;
+    window.location.href='/csgeeksblog?tag='+tag;
 }
 function getData(tag=undefined,name,order=undefined,orderby=undefined){
     let blog_tags ;
@@ -64,6 +64,12 @@ function getData(tag=undefined,name,order=undefined,orderby=undefined){
         blog_tags = response.data.tags
     }).finally(()=>{
             
+                    document.getElementById("navbarscroller").innerHTML = `
+                    <label for="navbar-tags" class="d-inline-flex scrollable-tags"><span class="p-2 text-muted">Tags:</span>
+                    <nav class="nav justify-content-start" id="navbar-tags" >
+                      
+                    </nav>
+                    </label>`
                     var div = document.getElementById('navbar-tags');
                     div.innerHTML='';
                     if(blog_tags.length>0)
@@ -71,7 +77,7 @@ function getData(tag=undefined,name,order=undefined,orderby=undefined){
                     for (const tag in blog_tags) {
                         if (blog_tags.hasOwnProperty(tag)) {
                             const t = blog_tags[tag];
-                            div.innerHTML+=`<a class="p-2 text-muted" href="javascript:;" onclick="filterBy('`+t+`')">`+t+`</a>`;
+                            div.innerHTML+=`<a class="p-2 text-muted" href="javascript:;" onclick="filterBy('`+t+`')" style="border-radius:5px;">`+t+`</a>`;
                         }
                     }
     });
@@ -87,18 +93,22 @@ function getData(tag=undefined,name,order=undefined,orderby=undefined){
             document.title = "CS Geeks | "+response['data']['author']['rname'];
             document.querySelector('meta[name="description"]').setAttribute("content", response['data']['author']['bio']);
             document.getElementById('d-2').innerHTML+=
-            `<div class="container">
-            <div class="no-gutters border rounded mb-4 shadow-sm position-relative">
-            <div class="p-4 d-flex flex-column">
-            <h3 class="mb-1">Author : `+response['data']['author']['name']+`</h3>
-            <div class="mb-1">Name : `+response['data']['author']['rname']+`</div>
-            <div class="mb-1">Bio : `+response['data']['author']['bio']+`</div>
-            <p class="card-text mb-auto">E-mail : <a href="mailto:`+response['data']['author']['mail']+`">`+response['data']['author']['mail']+`</a></p>
-            <p class="card-text mb-auto">Social Links :</p>
-            `+tempo+`
-            </div>
-            </div>
-            </div>`;
+            `<span class="container">
+                <div class="no-gutters border rounded mb-4 shadow-sm position-relative" style="overflow:auto;">
+                    <div class="ml-3 mt-3" display:inline-block;" id="profilephoto" style="float:left;">
+                        <img src="`+response['data']['author']['profile_photo']+`" alt="prifle picture">
+                    </div>
+                    <div class="p-4 d-flex flex-column" style="float:left; display:inline-block;">
+                        <h3 class="mb-1">`+response['data']['author']['name']+`</h3>
+                        <div class="mb-1">Name : `+response['data']['author']['rname']+`</div>
+                        <div class="mb-1">Bio : `+response['data']['author']['bio']+`</div>
+                        <p class="card-text mb-auto">E-mail : <a href="mailto:`+response['data']['author']['mail']+`">`+response['data']['author']['mail']+`</a></p>
+                        <p class="card-text mb-auto">Social Links :</p>
+                        `+tempo+`
+                    </div>
+                </div>
+            </span>
+            `;
             axios.get('https://redrangerpostgres1.herokuapp.com/blog/posts?author='+name).then(response => {
             // console.log(response.data);
             if(response.data.success&&response.data.articles.length>0){;
@@ -118,7 +128,6 @@ function getData(tag=undefined,name,order=undefined,orderby=undefined){
                     </a>
                     <a style="color:inherit;" class="block" href="/csgeeksblog/post?id=`+response.data.articles[index]._id+`">
                     <p class="card-text mb-auto">`+description+`</p>
-                    <p class="card-text mb-auto">Click to see detail...</p>
                     </a>
                     </div>
                     <div class="d-lg-block" id="tb-1">
