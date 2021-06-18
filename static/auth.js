@@ -73,7 +73,6 @@ function getData(tag=undefined,name,order=undefined,orderby=undefined){
                     var div = document.getElementById('navbar-tags');
                     div.innerHTML='';
                     if(blog_tags.length>0)
-                    div.innerHTML='<section class="text-muted p-2">Tags:</section>';
                     for (const tag in blog_tags) {
                         if (blog_tags.hasOwnProperty(tag)) {
                             const t = blog_tags[tag];
