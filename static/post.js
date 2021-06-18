@@ -57,8 +57,9 @@ function getData(id){
             c = md.render(c);
             let d = new Date(Date.parse(response.data.article.created))
             // console.log(d.toDateString())
-            document.title = response['data']['article']['title'];
+            top.document.title = response['data']['article']['title'];
             document.querySelector('meta[name="description"]').setAttribute("content", "To know more about \""+response['data']['article']['title']+"\" read the article on CS Geeks Blog!");
+            document.querySelector('meta[name="keywords"]').setAttribute("content", tags.join(', ')+", "+response['data']['article']['title'].split(' ').join(', '));
             document.getElementById('d-2').innerHTML+=
             `<div class="container">
                 <div class="text-center d-lg-block">
