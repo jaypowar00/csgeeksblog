@@ -23,6 +23,15 @@ window.onload = function(){
         </div>
         </div>`;
     }
+    backtotop = document.getElementById('backtotop')
+    backtotop.addEventListener('click', () => {
+        window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+        });
+        console.log('backtotop clicked');
+    }
+    );
 };
 const filterBy=(tag)=>{
     try {
