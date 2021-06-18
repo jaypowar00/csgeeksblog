@@ -119,24 +119,24 @@ function getData(tag=undefined,name,order=undefined,orderby=undefined){
                     `<div class="container col-md-6">
                     <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" id="blog-cards">
                     <div class="col p-4 d-flex flex-column position-static">
-                    <a style="color:inherit;" class="block" href="/csgeeksblog/post?id=`+response.data.articles[index]._id+`">
+                    <a style="color:inherit;" class="block" href="/csgeeksblog/post?id=`+response.data.articles[index]._id+`&a=`+response.data.articles[index].title.toLowerCase().split(' ').join('-')+`">
                     <h3 class="mb-0">`+response.data.articles[index].title+`</h3>
                     </a>
                     <div class=" mb-n1 text-muted">`+d.toDateString()+`</div>
                     <a style="color:inherit;" class="block" href="/csgeeksblog/author?name=`+response.data.articles[index].author+`">
                     <div class="mb-1 text-info">`+response.data.articles[index].author+`</div>
                     </a>
-                    <a style="color:inherit;" class="block" href="/csgeeksblog/post?id=`+response.data.articles[index]._id+`">
+                    <a style="color:inherit;" class="block" href="/csgeeksblog/post?id=`+response.data.articles[index]._id+`&a=`+response.data.articles[index].title.toLowerCase().split(' ').join('-')+`">
                     <p class="card-text mb-auto">`+description+`</p>
                     </a>
                     </div>
                     <div class="d-lg-block" id="tb-1">
-                    <a style="color:inherit;" class="block" href="/csgeeksblog/post?id=`+response.data.articles[index]._id+`">
+                    <a style="color:inherit;" class="block" href="/csgeeksblog/post?id=`+response.data.articles[index]._id+`&a=`+response.data.articles[index].title.toLowerCase().split(' ').join('-')+`">
                     <img class="bd-placeholder-img" id="img-thumbnail" width="200" height="100%" src='`+response.data.articles[index].thumbnail+`' alt='Thumbnail'>
                     </a>
                     </div>
                     <div class="text-center d-lg-block" id="tb-2">
-                    <a style="color:inherit;" class="block" href="/csgeeksblog/post?id=`+response.data.articles[index]._id+`">
+                    <a style="color:inherit;" class="block" href="/csgeeksblog/post?id=`+response.data.articles[index]._id+`&a=`+response.data.articles[index].title.toLowerCase().split(' ').join('-')+`">
                     <img class="bd-placeholder-img" id="img-thumbnail-2" width="60%" height="auto" src='`+response.data.articles[index].thumbnail+`' alt='Thumbnail'>
                     </a>
                     </div>
