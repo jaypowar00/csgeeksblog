@@ -95,7 +95,7 @@ function getData(tag=undefined,name,order=undefined,orderby=undefined){
             document.getElementById('d-2').innerHTML+=
             `<span class="container">
                 <div class="no-gutters border rounded mb-4 shadow-sm position-relative" style="overflow:auto;">
-                    <div class="mt-3" display:inline-block;" id="profilephoto" style="float:left;">
+                    <div class="ml-3 my-3" display:inline-block;" id="profilephoto" style="float:left;">
                         <img src="`+response['data']['author']['profile_photo']+`" alt="prifle picture" width="225" height="225">
                     </div>
                     <div class="p-4 d-flex flex-column" style="float:left; display:inline-block;">
