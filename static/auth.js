@@ -34,10 +34,10 @@ const filterBy=(tag)=>{
         console.log(error);
     }
     if (name){
-    window.location.href='index.html?author='+name+'&tag='+tag;
+    window.location.href='/?author='+name+'&tag='+tag;
     }
     else
-    window.location.href='index.html?tag='+tag;
+    window.location.href='/?tag='+tag;
 }
 function getData(tag=undefined,name,order=undefined,orderby=undefined){
     let blog_tags ;
@@ -75,6 +75,8 @@ function getData(tag=undefined,name,order=undefined,orderby=undefined){
             for (let index = 0; index < social.length; index++) {
                 tempo += '<p class="card-text mb-auto"><a href="'+social[index].url+'">'+social[index].name+'</a></p>';
             }
+            document.title = "CS Geeks | "+response['data']['author']['rname'];
+            document.querySelector('meta[name="description"]').setAttribute("content", response['data']['author']['bio']);
             document.getElementById('d-2').innerHTML+=
             `<div class="container">
             <div class="no-gutters border rounded mb-4 shadow-sm position-relative">
@@ -98,25 +100,25 @@ function getData(tag=undefined,name,order=undefined,orderby=undefined){
                     `<div class="container col-md-6">
                     <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" id="blog-cards">
                     <div class="col p-4 d-flex flex-column position-static">
-                    <a style="color:inherit;" class="block" href="post.html?id=`+response.data.articles[index]._id+`">
+                    <a style="color:inherit;" class="block" href="/csgeeksblog/post?id=`+response.data.articles[index]._id+`">
                     <h3 class="mb-0">`+response.data.articles[index].title+`</h3>
                     </a>
                     <div class=" mb-n1 text-muted">`+d.toDateString()+`</div>
-                    <a style="color:inherit;" class="block" href="author.html?name=`+response.data.articles[index].author+`">
+                    <a style="color:inherit;" class="block" href="/csgeeksblog/author?name=`+response.data.articles[index].author+`">
                     <div class="mb-1 text-info">`+response.data.articles[index].author+`</div>
                     </a>
-                    <a style="color:inherit;" class="block" href="post.html?id=`+response.data.articles[index]._id+`">
+                    <a style="color:inherit;" class="block" href="/csgeeksblog/post?id=`+response.data.articles[index]._id+`">
                     <p class="card-text mb-auto">`+description+`</p>
                     <p class="card-text mb-auto">Click to see detail...</p>
                     </a>
                     </div>
                     <div class="d-lg-block" id="tb-1">
-                    <a style="color:inherit;" class="block" href="post.html?id=`+response.data.articles[index]._id+`">
+                    <a style="color:inherit;" class="block" href="/csgeeksblog/post?id=`+response.data.articles[index]._id+`">
                     <img class="bd-placeholder-img" id="img-thumbnail" width="200" height="100%" src='`+response.data.articles[index].thumbnail+`' alt='Thumbnail'>
                     </a>
                     </div>
                     <div class="text-center d-lg-block" id="tb-2">
-                    <a style="color:inherit;" class="block" href="post.html?id=`+response.data.articles[index]._id+`">
+                    <a style="color:inherit;" class="block" href="/csgeeksblog/post?id=`+response.data.articles[index]._id+`">
                     <img class="bd-placeholder-img" id="img-thumbnail-2" width="60%" height="auto" src='`+response.data.articles[index].thumbnail+`' alt='Thumbnail'>
                     </a>
                     </div>
