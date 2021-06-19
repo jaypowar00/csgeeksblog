@@ -285,7 +285,7 @@ const getPostForUpdate = (id) => {
                         <input type="text" placeholder="thumbnail link" name="thumbnail" class="form-control mt-1 article-input" value="`+response.data.article.thumbnail+`" required><br>
                         </div><br>
                         <input class="btn btn-success mt-2 form-control-lg" type="submit" value="Update" id="update-btn" style="font-size: 30px;" onsubmit="return false" onclick="updateData(`+id+`)">
-                        <input class="btn btn-default mt-2 form-control-lg" type="button" value="Cancel" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/admin'">
+                        <input class="btn btn-danger mt-2 form-control-lg" type="button" value="Cancel" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/admin'">
                         </div>
                         </form>
                         `
@@ -357,7 +357,7 @@ const getForCreate = (id) => {
                             <input type="text" placeholder="thumbnail link" name="thumbnail" class="border-dark form-control mt-1 article-input" required><br>
                         </div><br>
                         <input class="btn btn-success mt-2 form-control-lg" type="submit" value="Create Post" id="update-btn" style="font-size: 30px;" onsubmit="return false" onclick="postData()">
-                        <input class="btn btn-default mt-2 form-control-lg" type="button" value="Cancel" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/admin'">
+                        <input class="btn btn-danger mt-2 form-control-lg" type="button" value="Cancel" style="font-size: 30px" onclick="location.href='/csgeeksblog/admin/admin'">
                     </div>
                 </form>
             </div>
