@@ -57,7 +57,7 @@ function getData(id){
             var vlink = response.data.article.vlink;
             if(vlink){
                 link=`
-                <div id="yt-link" class="container-fluid mb-4" style="height:25vw;min-height:200px;">
+                <div id="yt-link" class="container-fluid mb-4 mt-n5" style="height:25vw;min-height:200px;">
                     <iframe width="100%" height="100%" src="`+vlink+`" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 `;

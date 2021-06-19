@@ -95,7 +95,7 @@ function getData(tag=undefined,name,order=undefined,orderby=undefined){
             `<span class="container">
                 <div class="no-gutters border rounded mb-4 shadow-sm position-relative" style="overflow:auto;">
                     <div class="ml-3 my-3" display:inline-block;" id="profilephoto" style="float:left;">
-                        <img src="`+response['data']['author']['profile_photo']+`" alt="prifle picture" width="225" height="225">
+                        <img src="`+response['data']['author']['profile_photo']+`" alt="profile picture" width="225" height="225">
                     </div>
                     <div class="p-4 d-flex flex-column" style="float:left; display:inline-block;">
                         <h3 class="mb-1">`+response['data']['author']['name']+`</h3>
