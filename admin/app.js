@@ -203,19 +203,19 @@ const getDataForUpdate = () => {
                         document.getElementById('list').innerHTML+=
                         `
                         <div class="container col-md-6">
-                        <a style="color:inherit;" class="block" href="javascript:;" onclick="getPostForUpdate(`+response.data.articles[index]._id+`)">
-                            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                            <div class="col p-4 d-flex flex-column position-static">
-                            <h3 class="mb-0">`+response.data.articles[index].title+`</h3>
-                            <div class=" mb-n1 text-muted">`+d.toDateString()+`</div>
-                            <div class="mb-1 text-info">`+response.data.articles[index].author+`</div>
-                            <p class="card-text mb-auto">`+description+`</p>
-                            <p class="card-text mb-auto">Click to see detail...</p>
-                            </div>
-                            </div>
-                            </div>
-                        </a>
+                            <a style="color:inherit;" class="block" href="javascript:;" onclick="getPostForUpdate(`+response.data.articles[index]._id+`)">
+                                <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                                    <div class="col p-4 d-flex flex-column position-static">
+                                        <h3 class="mb-0">`+response.data.articles[index].title+`</h3>
+                                        <div class=" mb-n1 text-muted">`+d.toDateString()+`</div>
+                                        <div class="mb-1 text-info">`+response.data.articles[index].author+`</div>
+                                        <p class="card-text mb-auto">`+description+`</p>
+                                        <p class="card-text mb-auto">Click to see detail...</p>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
+                        <input class="btn btn-success mt-2 form-control-lg" type="button" value="Cancle" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/admin'">
                         `;
                     }
                 }
@@ -285,7 +285,8 @@ const getPostForUpdate = (id) => {
                         <input type="text" placeholder="thumbnail link" name="thumbnail" class="form-control mt-1 article-input" value="`+response.data.article.thumbnail+`" required><br>
                         </div><br>
                         <input class="btn btn-success mt-2 form-control-lg" type="submit" value="Update" id="update-btn" style="font-size: 30px;" onsubmit="return false" onclick="updateData(`+id+`)">
-                        <input class="btn btn-danger mt-2 form-control-lg" type="button" value="Cancel" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/admin'">
+                        <input class="btn btn-danger mt-2 form-control-lg" type="button" value="Cancel" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/update'"><br/>
+                        <input class="btn btn-success mt-2 form-control-lg" type="button" value="Admin Panel" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/admin'">
                         </div>
                         </form>
                         `
@@ -357,7 +358,7 @@ const getForCreate = (id) => {
                             <input type="text" placeholder="thumbnail link" name="thumbnail" class="border-dark form-control mt-1 article-input" required><br>
                         </div><br>
                         <input class="btn btn-success mt-2 form-control-lg" type="submit" value="Create Post" id="update-btn" style="font-size: 30px;" onsubmit="return false" onclick="postData()">
-                        <input class="btn btn-danger mt-2 form-control-lg" type="button" value="Cancel" style="font-size: 30px" onclick="location.href='/csgeeksblog/admin/admin'">
+                        <input class="btn btn-danger mt-2 form-control-lg" type="button" value="Cancel" style="font-size: 30px" onclick="location.href='/csgeeksblog/admin/admin'"><br/>
                     </div>
                 </form>
             </div>
@@ -405,10 +406,29 @@ const postData = () => {
             }
         }).then(response => {
             // console.log(response['data']);
-            document.getElementById('d-1').innerHTML='<hr><div class="container text-success text-center">result:<br><p>'+JSON.stringify(response['data'])+'</p></div><hr>';
+            if(response['data']['success']){
+                document.getElementById('d-1').innerHTML=`
+                <hr>
+                <div class="container text-success text-center">result:<br><p>Article Successfully created!</p></div>
+                <input class="btn btn-success mt-2 form-control-lg" type="button" value="Create Again" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/create'"><br/>
+                <input class="btn btn-success mt-2 form-control-lg" type="button" value="Admin Panel" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/admin'">
+                <hr>`;
+            }else{
+                document.getElementById('d-1').innerHTML=`
+                <hr>
+                <div class="container text-danger text-center">result:<br><p>Failed to Create Article!</p></div>
+                <input class="btn btn-success mt-2 form-control-lg" type="button" value="Create Again" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/create'"><br/>
+                <input class="btn btn-success mt-2 form-control-lg" type="button" value="Admin Panel" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/admin'">
+                <hr>`;
+            }
         }).catch(err => {
             console.log(err.response.data);
-            document.getElementById('d-1').innerHTML='<hr><div class="container text-success text-center">result:<br><p>'+JSON.stringify(err.response.data)+'</p></div><hr>';
+            document.getElementById('d-1').innerHTML=`
+            <hr>
+            <div class="container text-danger text-center">result:<br><p>Failed to Create Article!</p></div>
+            <input class="btn btn-success mt-2 form-control-lg" type="button" value="Create Again" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/create'"><br/>
+            <input class="btn btn-success mt-2 form-control-lg" type="button" value="Admin Panel" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/admin'">
+            <hr>`;
         });
     }
 };
@@ -447,11 +467,30 @@ const updateData = (id) => {
             }
         }).then(response => {
             // console.log(response['data']);
-            document.getElementById('d-1').innerHTML='<hr><div class="container text-success text-center">result:<br><p>'+JSON.stringify(response['data'])+'</p></div><hr>';
+            if(response['data']['success']){
+                document.getElementById('d-1').innerHTML=`
+                <hr>
+                <div class="container text-success text-center">result:<br><p>Article Successfully Updated!</p></div>
+                <input class="btn btn-success mt-2 form-control-lg" type="button" value="Ok" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/update'">
+                <hr>
+                `;
+            }else{
+                document.getElementById('d-1').innerHTML=`
+                <hr>
+                <div class="container text-danger text-center">result:<br><p>Failed to Update Article!</p></div>
+                <input class="btn btn-success mt-2 form-control-lg" type="button" value="Ok" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/update'">
+                <hr>
+                `;
+            }
             getData();
         }).catch(err => {
             console.log(err.response.data);
-            document.getElementById('d-1').innerHTML='<hr><div class="container text-success text-center">result:<br><p>'+JSON.stringify(err.response.data)+'</p></div><hr>';
+            document.getElementById('d-1').innerHTML=`
+            <hr>
+                <div class="container text-danger text-center">result:<br><p>Failed to Update Article!</p></div>
+                <div class="container mt-2 text-success text-center">result:<br><p>'+JSON.stringify(err.response.data)+'</p></div>
+                <input class="btn btn-success mt-2 form-control-lg" type="button" value="Ok" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/update'">
+            <hr>`;
         });
     }
 };
@@ -466,9 +505,15 @@ loadForDelAll=()=>{
         // console.log(res);
         if(res.data['success']){
             if(res.data['admin'])
-                document.getElementById('delAllOption').innerHTML=`<input class="btn btn-danger" type="button" value="Delete All" id="delete-btn" style="font-size: 30px;" onclick="delData()">`;
+                document.getElementById('delAllOption').innerHTML=`
+                <input class="btn btn-danger" type="button" value="Delete All" id="delete-btn" style="font-size: 30px;" onclick="delData()"><br/>
+                <input class="btn btn-success mt-2 form-control-lg" type="button" value="Cancle" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/admin'">
+                `;
             else
-                document.getElementById('delAllOption').innerHTML=`<input class="btn btn-danger" type="button" value="Delete All" id="delete-btn" style="font-size: 30px;" onclick="delData()" disabled>`;
+                document.getElementById('delAllOption').innerHTML=`
+                <input class="btn btn-danger" type="button" value="Delete All" id="delete-btn" style="font-size: 30px;" onclick="delData()" disabled><br/>
+                <input class="btn btn-success mt-2 form-control-lg" type="button" value="Cancle" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/admin'">
+                `;
         }
         else{
             document.getElementById('delAllOption').innerHTML='<h3>not logged in</h3>';
@@ -488,7 +533,17 @@ const delData = () => {
         }
     }).then(response => {
         // console.log(response['data']);
-        document.getElementById('d-1').innerHTML='<hr><div class="container text-success text-center">result:<br><p>'+JSON.stringify(response['data'])+'</p></div><hr>';
+        if(response['data']['success']) {
+            document.getElementById('d-1').innerHTML=`
+            <hr><div class="container text-success text-center">result:<br><p>All Articles has been successfully deleted!</p></div><hr>
+            <input class="btn btn-success mt-2 form-control-lg" type="button" value="Done" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/admin'">
+            `;
+        }else {
+            document.getElementById('d-1').innerHTML=`
+            <hr><div class="container text-danger text-center">result:<br><p>Failed to delete All Articles!\nReason: `+response['data']['result']+`</p></div><hr>
+            <input class="btn btn-success mt-2 form-control-lg" type="button" value="Done" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/admin'">
+            `;
+        }
     });
 };
 const showBeforeDelById = () => {
@@ -521,15 +576,15 @@ const showBeforeDelById = () => {
                         `
                         <div class="container col-md-6">
                             <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                            <div class="col p-4 d-flex flex-column position-static">
-                            <h3 class="mb-0">ID: `+response.data.articles[index]._id+`</h3>
-                            <h4 class="mb-0">Title: `+response.data.articles[index].title+`</h4>
-                            <div class="mb-1 text-info">`+response.data.articles[index].author+`</div>
-                            <p class="card-text mb-auto">`+description+`</p>
-                            </div>
-                            </div>
+                                <div class="col p-4 d-flex flex-column position-static">
+                                    <h3 class="mb-0">ID: `+response.data.articles[index]._id+`</h3>
+                                    <h4 class="mb-0">Title: `+response.data.articles[index].title+`</h4>
+                                    <div class="mb-1 text-info">`+response.data.articles[index].author+`</div>
+                                    <p class="card-text mb-auto">`+description+`</p>
+                                </div>
                             </div>
                         </div>
+                        <input class="btn btn-success mt-2 form-control-lg" type="button" value="Cancle" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/admin'">
                         `;
                     }
                 }
