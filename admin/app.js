@@ -200,9 +200,8 @@ const getDataForUpdate = () => {
                     for (let index = 0; index < response.data.articles.length ; index++) {
                         let d = new Date(Date.parse(response.data.articles[index].created))
                         description = response.data.articles[index].description?response.data.articles[index].description:'';
-                        document.getElementById('list').innerHTML+=
-                        `
-                        <div class="container col-md-6">
+                        var article_list=
+                        `<div class="container col-md-6">
                             <a style="color:inherit;" class="block" href="javascript:;" onclick="getPostForUpdate(`+response.data.articles[index]._id+`)">
                                 <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                                     <div class="col p-4 d-flex flex-column position-static">
@@ -214,8 +213,10 @@ const getDataForUpdate = () => {
                                     </div>
                                 </div>
                             </a>
-                        </div>
-                        <input class="btn btn-success mt-2 form-control-lg" type="button" value="Cancle" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/admin'">
+                        </div>`;
+                        document.getElementById('list').innerHTML+=
+                        article_list+`
+                        <input class="btn btn-success mt-2 form-control-lg" type="button" value="Cancle" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/admin'">
                         `;
                     }
                 }
@@ -286,7 +287,7 @@ const getPostForUpdate = (id) => {
                         </div><br>
                         <input class="btn btn-success mt-2 form-control-lg" type="submit" value="Update" id="update-btn" style="font-size: 30px;" onsubmit="return false" onclick="updateData(`+id+`)">
                         <input class="btn btn-danger mt-2 form-control-lg" type="button" value="Cancel" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/update'"><br/>
-                        <input class="btn btn-success mt-2 form-control-lg" type="button" value="Admin Panel" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/admin'">
+                        <input class="btn btn-success mt-2 form-control-lg" type="button" value="Admin Panel" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/admin'">
                         </div>
                         </form>
                         `
@@ -410,15 +411,15 @@ const postData = () => {
                 document.getElementById('d-1').innerHTML=`
                 <hr>
                 <div class="container text-success text-center">result:<br><p>Article Successfully created!</p></div>
-                <input class="btn btn-success mt-2 form-control-lg" type="button" value="Create Again" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/create'"><br/>
-                <input class="btn btn-success mt-2 form-control-lg" type="button" value="Admin Panel" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/admin'">
+                <input class="btn btn-success mt-2 form-control-lg" type="button" value="Create Again" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/create'"><br/>
+                <input class="btn btn-success mt-2 form-control-lg" type="button" value="Admin Panel" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/admin'">
                 <hr>`;
             }else{
                 document.getElementById('d-1').innerHTML=`
                 <hr>
                 <div class="container text-danger text-center">result:<br><p>Failed to Create Article!</p></div>
-                <input class="btn btn-success mt-2 form-control-lg" type="button" value="Create Again" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/create'"><br/>
-                <input class="btn btn-success mt-2 form-control-lg" type="button" value="Admin Panel" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/admin'">
+                <input class="btn btn-success mt-2 form-control-lg" type="button" value="Create Again" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/create'"><br/>
+                <input class="btn btn-success mt-2 form-control-lg" type="button" value="Admin Panel" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/admin'">
                 <hr>`;
             }
         }).catch(err => {
@@ -426,8 +427,8 @@ const postData = () => {
             document.getElementById('d-1').innerHTML=`
             <hr>
             <div class="container text-danger text-center">result:<br><p>Failed to Create Article!</p></div>
-            <input class="btn btn-success mt-2 form-control-lg" type="button" value="Create Again" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/create'"><br/>
-            <input class="btn btn-success mt-2 form-control-lg" type="button" value="Admin Panel" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/admin'">
+            <input class="btn btn-success mt-2 form-control-lg" type="button" value="Create Again" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/create'"><br/>
+            <input class="btn btn-success mt-2 form-control-lg" type="button" value="Admin Panel" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/admin'">
             <hr>`;
         });
     }
@@ -471,14 +472,14 @@ const updateData = (id) => {
                 document.getElementById('d-1').innerHTML=`
                 <hr>
                 <div class="container text-success text-center">result:<br><p>Article Successfully Updated!</p></div>
-                <input class="btn btn-success mt-2 form-control-lg" type="button" value="Ok" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/update'">
+                <input class="btn btn-success mt-2 form-control-lg" type="button" value="Ok" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/update'">
                 <hr>
                 `;
             }else{
                 document.getElementById('d-1').innerHTML=`
                 <hr>
                 <div class="container text-danger text-center">result:<br><p>Failed to Update Article!</p></div>
-                <input class="btn btn-success mt-2 form-control-lg" type="button" value="Ok" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/update'">
+                <input class="btn btn-success mt-2 form-control-lg" type="button" value="Ok" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/update'">
                 <hr>
                 `;
             }
@@ -489,7 +490,7 @@ const updateData = (id) => {
             <hr>
                 <div class="container text-danger text-center">result:<br><p>Failed to Update Article!</p></div>
                 <div class="container mt-2 text-success text-center">result:<br><p>'+JSON.stringify(err.response.data)+'</p></div>
-                <input class="btn btn-success mt-2 form-control-lg" type="button" value="Ok" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/update'">
+                <input class="btn btn-success mt-2 form-control-lg" type="button" value="Ok" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/update'">
             <hr>`;
         });
     }
@@ -507,16 +508,19 @@ loadForDelAll=()=>{
             if(res.data['admin'])
                 document.getElementById('delAllOption').innerHTML=`
                 <input class="btn btn-danger" type="button" value="Delete All" id="delete-btn" style="font-size: 30px;" onclick="delData()"><br/>
-                <input class="btn btn-success mt-2 form-control-lg" type="button" value="Cancle" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/admin'">
+                <input class="btn btn-success mt-2 form-control-lg" type="button" value="Cancle" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/admin'">
                 `;
             else
                 document.getElementById('delAllOption').innerHTML=`
                 <input class="btn btn-danger" type="button" value="Delete All" id="delete-btn" style="font-size: 30px;" onclick="delData()" disabled><br/>
-                <input class="btn btn-success mt-2 form-control-lg" type="button" value="Cancle" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/admin'">
+                <input class="btn btn-success mt-2 form-control-lg" type="button" value="Cancle" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/admin'">
                 `;
         }
         else{
-            document.getElementById('delAllOption').innerHTML='<h3>not logged in</h3>';
+            document.getElementById('delAllOption').innerHTML=`
+            <h3>not logged in</h3>
+            <input class="btn btn-success mt-2 form-control-lg" type="button" value="Ok" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/admin'">
+            `;
             document.cookie= 'access_token_cookie=; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
             alert('Not Logged In\nPlease login to access these features!');
         }
@@ -536,12 +540,12 @@ const delData = () => {
         if(response['data']['success']) {
             document.getElementById('d-1').innerHTML=`
             <hr><div class="container text-success text-center">result:<br><p>All Articles has been successfully deleted!</p></div><hr>
-            <input class="btn btn-success mt-2 form-control-lg" type="button" value="Done" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/admin'">
+            <input class="btn btn-success mt-2 form-control-lg" type="button" value="Done" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/admin'">
             `;
         }else {
             document.getElementById('d-1').innerHTML=`
             <hr><div class="container text-danger text-center">result:<br><p>Failed to delete All Articles!\nReason: `+response['data']['result']+`</p></div><hr>
-            <input class="btn btn-success mt-2 form-control-lg" type="button" value="Done" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/admin'">
+            <input class="btn btn-success mt-2 form-control-lg" type="button" value="Done" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/admin'">
             `;
         }
     });
@@ -584,18 +588,23 @@ const showBeforeDelById = () => {
                                 </div>
                             </div>
                         </div>
-                        <input class="btn btn-success mt-2 form-control-lg" type="button" value="Cancle" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/admin'">
+                        <input class="btn btn-success mt-2 form-control-lg" type="button" value="Cancle" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/admin'">
                         `;
                     }
                 }
             });
         }else{
-            document.getElementById('list').innerHTML='<h3>not logged in</h3>';
+            document.getElementById('list').innerHTML=`<h3>not logged in</h3>
+            <input class="btn btn-success mt-2 form-control-lg" type="button" value="Ok" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/admin'">
+            `;
             document.cookie= 'access_token_cookie=; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
             alert('Not Logged In\nPlease login to access these features!');
         }
     }).catch(res=>{
-        document.getElementById('list').innerHTML=`(connection failed try again shortly...)`;
+        document.getElementById('list').innerHTML=`
+        (connection failed try again shortly...)
+        <input class="btn btn-success mt-2 form-control-lg" type="button" value="Ok" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/admin'">
+        `;
         token=undefined;
         console.log(res);
     });
@@ -631,7 +640,10 @@ const delDataById = () => {
                             alert('post with id='+form.id.value+' does not exists');
                         }
                     }).catch(res=>{
-                        document.getElementById('d-1').innerHTML=`(connection failed try again shortly...)`;
+                        document.getElementById('d-1').innerHTML=`
+                        (connection failed try again shortly...)
+                        <input class="btn btn-success mt-2 form-control-lg" type="button" value="Ok" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/admin'">
+                        `;
                         token=undefined;
                         console.log(res);
                     });
@@ -643,25 +655,44 @@ const delDataById = () => {
                         if(response.data.success){
                             axios.post('https://redrangerpostgres1.herokuapp.com/blog/post/delete?id='+id+'&token='+token).then(response => {
                                 // console.log(response['data']);
-                                document.getElementById('d-1').innerHTML='<hr><div class="container text-success text-center">result:<br><p>'+JSON.stringify(response['data'])+'</p></div><hr>';
+                                if(response.data.success) {
+                                    document.getElementById('d-1').innerHTML=`
+                                    <hr><div class="container text-success text-center"><p>Successfully Deleted Article</p></div><hr>
+                                    <input class="btn btn-success mt-2 form-control-lg" type="button" value="Ok" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/delete'"><br/>
+                                    <input class="btn btn-success mt-2 form-control-lg" type="button" value="Admin Panel" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/admin'">
+                                    `;
+                                }else {
+                                    document.getElementById('d-1').innerHTML=`
+                                    <hr><div class="container text-danger text-center"><p>'+JSON.stringify(response['data'])+'</p></div><hr>
+                                    <input class="btn btn-success mt-2 form-control-lg" type="button" value="Ok" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/admin'"><br/>
+                                    `;
+                                }
                             });
                         }else{
                             alert('post with id='+form.id.value+' does not exists');
                         }
                     }).catch(res=>{
-                        document.getElementById('d-1').innerHTML=`(connection failed try again shortly...)`;
+                        document.getElementById('d-1').innerHTML=`
+                        (connection failed try again shortly...)
+                        <input class="btn btn-success mt-2 form-control-lg" type="button" value="Ok" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/admin'">`;
                         token=undefined;
                         console.log(res);
                     });
                 }
             }
         }else{
-            document.getElementById('d-1').innerHTML='<h3>not logged in</h3>';
+            document.getElementById('d-1').innerHTML=`
+            <h3>not logged in</h3>
+            <input class="btn btn-success mt-2 form-control-lg" type="button" value="Ok" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/admin'">
+            `;
             document.cookie= 'access_token_cookie=; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
             alert('Not Logged In\nPlease login to access these features!');
         }
     }).catch(res=>{
-        document.getElementById('d-1').innerHTML=`(connection failed try again shortly...)`;
+        document.getElementById('d-1').innerHTML=`
+        (connection failed try again shortly...)
+        <input class="btn btn-success mt-2 form-control-lg" type="button" value="Ok" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/admin'">
+        `;
         token=undefined;
         console.log(res);
     })
