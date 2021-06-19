@@ -197,10 +197,11 @@ const getDataForUpdate = () => {
                 // console.log(response['data']);
                 if(response.data.success&&response.data.articles.length>0){
                     document.getElementById('list').innerHTML='';
+                    var article_list = ``;
                     for (let index = 0; index < response.data.articles.length ; index++) {
                         let d = new Date(Date.parse(response.data.articles[index].created))
                         description = response.data.articles[index].description?response.data.articles[index].description:'';
-                        var article_list=
+                        article_list +=
                         `<div class="container col-md-6">
                             <a style="color:inherit;" class="block" href="javascript:;" onclick="getPostForUpdate(`+response.data.articles[index]._id+`)">
                                 <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
@@ -214,11 +215,12 @@ const getDataForUpdate = () => {
                                 </div>
                             </a>
                         </div>`;
-                        document.getElementById('list').innerHTML+=
-                        article_list+`
-                        <input class="btn btn-success mt-2 form-control-lg" type="button" value="Cancle" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/admin'">
-                        `;
                     }
+                    document.getElementById('list').innerHTML+=
+                    article_list+`
+                    <div class="container text-center" style="width:90%;">
+                    <input class="btn btn-success mt-2 form-control-lg" type="button" value="Cancle" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/admin'">
+                    </div>`;
                 }
             });
         }else{
@@ -574,10 +576,10 @@ const showBeforeDelById = () => {
                     <input class="btn btn-danger mt-3 mb-1 form-control-lg" type="submit" value="Delete Post" id="delby-btn" style="font-size: 30px;" onsubmit="return false" onclick="delDataById()">
                     `;
                     document.getElementById('list').innerHTML='';
+                    var article_list = ``;
                     for (let index = 0; index < response['data']['articles']['length'] ; index++) {
                         description = response.data.articles[index].description?response.data.articles[index].description:'';
-                        document.getElementById('list').innerHTML+=
-                        `
+                        article_list += `
                         <div class="container col-md-6">
                             <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                                 <div class="col p-4 d-flex flex-column position-static">
@@ -588,8 +590,11 @@ const showBeforeDelById = () => {
                                 </div>
                             </div>
                         </div>
-                        <input class="btn btn-success mt-2 form-control-lg" type="button" value="Cancle" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/admin'">
                         `;
+                        document.getElementById('list').innerHTML+=article_list+`
+                        <div class="container text-center" style="width:90%;">
+                        <input class="btn btn-success mt-2 form-control-lg" type="button" value="Cancle" style="font-size: 30px" onclick="window.location.href='/csgeeksblog/admin/admin'">
+                        </div>`;
                     }
                 }
             });
