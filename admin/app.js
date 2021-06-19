@@ -256,35 +256,36 @@ const getPostForUpdate = (id) => {
                         <iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe" hidden></iframe>
                         <form name="form-1" action="" method="post" class="" target="dummyframe">
                         <div class="form-group ">
-                        <div class="col-lg-5 d-inline-block mt-n3 text-center">
+                        <div class="col-lg-4 d-inline-block mt-n3 text-center">
                         <div class="container text-center">Title:</div>
-                        <input type="text" placeholder="title" name="title" class="form-control text-center article-input" value="`+response.data.article.title+`" required><br>
+                        <input type="text" placeholder="title" name="title" class="form-control article-input" value="`+response.data.article.title+`" required><br>
                         </div><br>
-                        <div class="col-lg-5 d-inline-block mt-n3">
+                        <div class="col-lg-4 d-inline-block mt-n3">
                         <div class="container text-center">Author:</div>
                         `+authorhtml+`
                         </div><br>
-                        <div class="col-lg-5 d-inline-block mt-n3">
+                        <div class="col-lg-4 d-inline-block mt-n3">
                         <div class="container text-center">Content:</div>
-                        <textarea name="content" cols="23" rows="10" placeholder="content" class="border-dark form-control text-center py-1 mt-1 article-input" required>`+response.data.article.content+`</textarea><br>
+                        <textarea name="content" cols="23" rows="10" placeholder="content" class="border-dark form-control py-1 mt-1 article-input" required>`+response.data.article.content+`</textarea><br>
                         </div><br>
-                        <div class="col-lg-5 d-inline-block mt-n3">
+                        <div class="col-lg-4 d-inline-block mt-n3">
                         <div class="container text-center">Description:</div>
-                        <input type="text" placeholder="description" name="description" class="form-control text-center py-1 article-input" value="`+description+`"><br>
+                        <input type="text" placeholder="description" name="description" class="form-control py-1 article-input" value="`+description+`"><br>
                         </div><br>
-                        <div class="col-lg-5 d-inline-block mt-n3">
+                        <div class="col-lg-4 d-inline-block mt-n3">
                         <div class="container text-center">YouTube Video Link:</div>
-                        <input type="text" placeholder="YouTube Video Link" name="vlink" class="form-control text-center mt-1 article-input" value="`+vlink+`"><br>
+                        <input type="text" placeholder="YouTube Video Link" name="vlink" class="form-control mt-1 article-input" value="`+vlink+`"><br>
                         </div><br>
-                        <div class="col-lg-5 d-inline-block mt-n3">
+                        <div class="col-lg-4 d-inline-block mt-n3">
                         <div class="container text-center">Tags:</div>
-                        <input id="tags" type="text" name="tags" placeholder="tags (separated by commas)" class="form-control text-center mt-1 article-input" value="`+response.data.article.tags.join(',')+`" required><br>
+                        <input id="tags" type="text" name="tags" placeholder="tags (separated by commas)" class="form-control mt-1 article-input" value="`+response.data.article.tags.join(',')+`" required><br>
                         </div><br>
-                        <div class="col-lg-5 d-inline-block mt-n3">
+                        <div class="col-lg-4 d-inline-block mt-n3">
                         <div class="container text-center">Thumbnail Link:</div>
-                        <input type="text" placeholder="thumbnail link" name="thumbnail" class="form-control text-center mt-1 article-input" value="`+response.data.article.thumbnail+`" required><br>
+                        <input type="text" placeholder="thumbnail link" name="thumbnail" class="form-control mt-1 article-input" value="`+response.data.article.thumbnail+`" required><br>
                         </div><br>
                         <input class="btn btn-success mt-2 form-control-lg" type="submit" value="Update" id="update-btn" style="font-size: 30px;" onsubmit="return false" onclick="updateData(`+id+`)">
+                        <input class="btn btn-default mt-2 form-control-lg" type="button" value="Cancel" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/admin'">
                         </div>
                         </form>
                         `
@@ -327,35 +328,36 @@ const getForCreate = (id) => {
                 <iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe" hidden></iframe>
                 <form name="form-1" action="" method="post" class="" target="dummyframe">
                     <div class="form-group ">
-                        <div class="col-lg-5 d-inline-block mt-0 text-center">
+                        <div class="col-lg-4 d-inline-block mt-0 text-center">
                             <div class="container text-center">Title:</div>
-                            <input type="text" placeholder="title" name="title" class="border-dark form-control text-center article-input" required><br>
+                            <input type="text" placeholder="title" name="title" class="border-dark form-control article-input" required><br>
                         </div><br>
-                        <div class="col-lg-5 d-inline-block mt-n3">
+                        <div class="col-lg-4 d-inline-block mt-n3">
                             <div class="container text-center">Author:</div>
                             `+authorhtml+`
                         </div><br>
-                        <div class="col-lg-5 d-inline-block mt-n3">
+                        <div class="col-lg-4 d-inline-block mt-n3">
                             <div class="container text-center">Content:</div>
-                            <textarea name="content" cols="23" rows="8" placeholder="content" class="border-dark form-control text-center py-1 mt-1 article-input" required></textarea><br>
+                            <textarea name="content" cols="23" rows="8" placeholder="content" class="border-dark form-control py-1 mt-1 article-input" required></textarea><br>
                         </div><br>
-                        <div class="col-lg-5 d-inline-block mt-n3">
+                        <div class="col-lg-4 d-inline-block mt-n3">
                             <div class="container text-center">Description:</div>
-                            <input type="text" placeholder="description" name="description" class="border-dark form-control text-center py-1 article-input"><br>
+                            <input type="text" placeholder="description" name="description" class="border-dark form-control py-1 article-input"><br>
                         </div><br>
-                        <div class="col-lg-5 d-inline-block mt-n3">
+                        <div class="col-lg-4 d-inline-block mt-n3">
                             <div class="container text-center">YouTube Video Link:</div>
-                            <input type="text" placeholder="YouTube Video Link" name="vlink" class="border-dark form-control text-center py-1 article-input"><br>
+                            <input type="text" placeholder="YouTube Video Link" name="vlink" class="border-dark form-control py-1 article-input"><br>
                         </div><br>
-                        <div class="col-lg-5 d-inline-block mt-n3">
+                        <div class="col-lg-4 d-inline-block mt-n3">
                             <div class="container text-center">Tags:</div>
-                            <input id="tags" type="text" name="tags" placeholder="tags (separated by commas)" class="border-dark form-control text-center mt-1 article-input" required><br>
+                            <input id="tags" type="text" name="tags" placeholder="tags (separated by commas)" class="border-dark form-control mt-1 article-input" required><br>
                         </div><br>
-                        <div class="col-lg-5 d-inline-block mt-n3">
+                        <div class="col-lg-4 d-inline-block mt-n3">
                             <div class="container text-center">Thumbnail Link:</div>
-                            <input type="text" placeholder="thumbnail link" name="thumbnail" class="border-dark form-control text-center mt-1 article-input" required><br>
+                            <input type="text" placeholder="thumbnail link" name="thumbnail" class="border-dark form-control mt-1 article-input" required><br>
                         </div><br>
                         <input class="btn btn-success mt-2 form-control-lg" type="submit" value="Create Post" id="update-btn" style="font-size: 30px;" onsubmit="return false" onclick="postData()">
+                        <input class="btn btn-default mt-2 form-control-lg" type="button" value="Cancel" style="font-size: 30px" onsubmit="window.location.href='/csgeeksblog/admin/admin'">
                     </div>
                 </form>
             </div>

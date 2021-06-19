@@ -69,12 +69,12 @@ function getData(id){
             document.querySelector('meta[name="description"]').setAttribute("content", "To know more about \""+response['data']['article']['title']+"\" read the article on CS Geeks Blog!");
             document.querySelector('meta[name="keywords"]').setAttribute("content", tags.join(', ')+", "+response['data']['article']['title'].split(' ').join(', '));
             document.getElementById('d-2').innerHTML+=
-            `<div class="container">
+            `<div class="container" style="padding-left:0px;padding-right:0px;">
                 <div class="text-center d-lg-block">
                     <img class="bd-placeholder-img img-thumbnail-3" width="50%" height="auto" src='`+response['data']['article']['thumbnail']+`' alt='Thumbnail'>
                 </div>
                 <div class="no-gutters border rounded mb-4 shadow-sm position-relative">
-                    <div class="p-4 d-flex flex-column overflow-hidden">
+                    <div class="p-3 pt-4 d-flex flex-column overflow-hidden">
                         <div class="mt-n3 mb-n1 text-muted text-right">`+d.toDateString()+`</div>
                         <h3 class="mb-0">`+response['data']['article']['title']+`</h3>
                         <a style="color:inherit;" class="block" href="/csgeeksblog/author?name=`+response['data']['article']['author']+`">
