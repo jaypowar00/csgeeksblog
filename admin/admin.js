@@ -17,10 +17,10 @@ function getCookie(cname) {
 const adminpageload=()=>{
     token=getCookie('access_token_cookie');
     if(token){
-        var query = 'https://redrangerpostgres1.herokuapp.com/blog/login/check?token='+token;
+        var query = 'https://csgeeks-blog-api.onrender.com/blog/login/check?token='+token;
     }
     else
-        var query = 'https://redrangerpostgres1.herokuapp.com/blog/login/check';
+        var query = 'https://csgeeks-blog-api.onrender.com/blog/login/check';
     axios.get(query).then(res=>{
         console.log(res);
         if(res.data['success']){
@@ -54,10 +54,10 @@ const logoutinadmin=()=>{
     token=undefined;
     token=getCookie('access_token_cookie');
     if(token){
-        var query = 'https://redrangerpostgres1.herokuapp.com/blog/login/check?token='+token;
+        var query = 'https://csgeeks-blog-api.onrender.com/blog/login/check?token='+token;
     }
     else
-        var query = 'https://redrangerpostgres1.herokuapp.com/blog/login/check';
+        var query = 'https://csgeeks-blog-api.onrender.com/blog/login/check';
     axios.get(query).then(res=>{
         console.log(res)
         if(res.data['success']){

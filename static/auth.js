@@ -59,7 +59,7 @@ function getData(tag=undefined,name,order=undefined,orderby=undefined){
                 <div class="sk-wave-rect"></div>
             </div><br><br><br>
             `;
-    axios.get('https://redrangerpostgres1.herokuapp.com/blog?get=tags').then(response => {
+    axios.get('https://csgeeks-blog-api.onrender.com/blog?get=tags').then(response => {
         if(response.data.success)
         blog_tags = response.data.tags
     }).finally(()=>{
@@ -80,7 +80,7 @@ function getData(tag=undefined,name,order=undefined,orderby=undefined){
                         }
                     }
     });
-    axios.get('https://redrangerpostgres1.herokuapp.com/blog/author?name='+name).then(response => {
+    axios.get('https://csgeeks-blog-api.onrender.com/blog/author?name='+name).then(response => {
         if(response['data']['success']){
             // console.log(response['data']);
             document.getElementById('d-2').innerHTML=``;
@@ -108,7 +108,7 @@ function getData(tag=undefined,name,order=undefined,orderby=undefined){
                 </div>
             </span>
             `;
-            axios.get('https://redrangerpostgres1.herokuapp.com/blog/posts?author='+name).then(response => {
+            axios.get('https://csgeeks-blog-api.onrender.com/blog/posts?author='+name).then(response => {
             // console.log(response.data);
             if(response.data.success&&response.data.articles.length>0){;
                 for (let index = 0; index < response.data.articles.length ; index++) {

@@ -1,5 +1,5 @@
 const getData = () => {
-    axios.get('https://redrangerpostgres1.herokuapp.com/blog/posts').then(response => {
+    axios.get('https://csgeeks-blog-api.onrender.com/blog/posts').then(response => {
         console.log(response['data']);
         if(response['data']['articles']['length']>0){
             document.getElementById('d-1').innerHTML='<hr><div class="container text-success text-center">result:<br><p>'+JSON.stringify(response['data'])+'</p></div><hr><div class="container row mb-2" id="d-2"></div>';
@@ -52,7 +52,7 @@ const postData = () => {
             data.append('thumbnail',thumbnail);
             data.append('tags',tags);
         }
-        axios.post('https://redrangerpostgres1.herokuapp.com/blog/create',data,{
+        axios.post('https://csgeeks-blog-api.onrender.com/blog/create',data,{
             headers:{
                 'C_AUTH':'?Rkqj98_hNV77aR67MRQhXz6_WC7XApXdG8@'
             }
@@ -66,7 +66,7 @@ const postData = () => {
     }
 };
 const delData = () => {
-    axios.post('https://redrangerpostgres1.herokuapp.com/blog/post/delete',undefined,{
+    axios.post('https://csgeeks-blog-api.onrender.com/blog/post/delete',undefined,{
         headers:{
             'C_AUTH':'?Rkqj98_hNV77aR67MRQhXz6_WC7XApXdG8@'
         }

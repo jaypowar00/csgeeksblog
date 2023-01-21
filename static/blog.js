@@ -101,7 +101,7 @@ window.onload = function(){
 }
 function getData(tag=undefined,author=undefined,orderby='created',order='desc',search=false){
     let blog_tags ;
-    axios.get('https://redrangerpostgres1.herokuapp.com/blog?get=tags').then(response => {
+    axios.get('https://csgeeks-blog-api.onrender.com/blog?get=tags').then(response => {
         if(response.data.success)
         blog_tags = response.data.tags
         blog_tags.sort();
@@ -306,7 +306,7 @@ function getData(tag=undefined,author=undefined,orderby='created',order='desc',s
                         <div class="sk-wave-rect"></div>
                     </div><br><br><br>
                     `;
-                query = `https://redrangerpostgres1.herokuapp.com/blog/posts?search=`+searchString+`&`+`tag=`+tag+`&author=`+author+`&orderby=`+orderby+`&order=`+order;
+                query = `https://csgeeks-blog-api.onrender.com/blog/posts?search=`+searchString+`&`+`tag=`+tag+`&author=`+author+`&orderby=`+orderby+`&order=`+order;
                 // console.log('formdata-> '+searchString);
             }
             else{
@@ -319,7 +319,7 @@ function getData(tag=undefined,author=undefined,orderby='created',order='desc',s
                     <div class="sk-wave-rect"></div>
                 </div><br><br><br>
                 `;
-                query = `https://redrangerpostgres1.herokuapp.com/blog/posts?tag=`+tag+`&author=`+author+`&orderby=`+orderby+`&order=`+order;
+                query = `https://csgeeks-blog-api.onrender.com/blog/posts?tag=`+tag+`&author=`+author+`&orderby=`+orderby+`&order=`+order;
             }
         }else{
             document.getElementById('d-2').innerHTML=`
@@ -331,7 +331,7 @@ function getData(tag=undefined,author=undefined,orderby='created',order='desc',s
                 <div class="sk-wave-rect"></div>
             </div><br><br><br>
             `;
-            query = `https://redrangerpostgres1.herokuapp.com/blog/posts?tag=`+tag+`&author=`+author+`&orderby=`+orderby+`&order=`+order;
+            query = `https://csgeeks-blog-api.onrender.com/blog/posts?tag=`+tag+`&author=`+author+`&orderby=`+orderby+`&order=`+order;
         }
         axios.get(query).then(response => {
             // console.log(response.data);
@@ -409,7 +409,7 @@ function getData(tag=undefined,author=undefined,orderby='created',order='desc',s
                     <div class="sk-wave-rect"></div>
                 </div><br><br><br>
                 `;
-                query = `https://redrangerpostgres1.herokuapp.com/blog/posts?search=`+searchString+`&`+`author=`+author+`&orderby=`+orderby+`&order=`+order
+                query = `https://csgeeks-blog-api.onrender.com/blog/posts?search=`+searchString+`&`+`author=`+author+`&orderby=`+orderby+`&order=`+order
                 // console.log('formdata-> '+searchString);
             }
             else{
@@ -422,7 +422,7 @@ function getData(tag=undefined,author=undefined,orderby='created',order='desc',s
                     <div class="sk-wave-rect"></div>
                 </div><br><br><br>
                 `;
-                query = `https://redrangerpostgres1.herokuapp.com/blog/posts?author=`+author+`&orderby=`+orderby+`&order=`+order
+                query = `https://csgeeks-blog-api.onrender.com/blog/posts?author=`+author+`&orderby=`+orderby+`&order=`+order
             }
         }else{
             document.getElementById('d-2').innerHTML=`
@@ -434,9 +434,9 @@ function getData(tag=undefined,author=undefined,orderby='created',order='desc',s
                 <div class="sk-wave-rect"></div>
             </div><br><br><br>
             `;
-            query = `https://redrangerpostgres1.herokuapp.com/blog/posts?author=`+author+`&orderby=`+orderby+`&order=`+order
+            query = `https://csgeeks-blog-api.onrender.com/blog/posts?author=`+author+`&orderby=`+orderby+`&order=`+order
         }
-        axios.get('https://redrangerpostgres1.herokuapp.com/blog/posts?author='+author+'&orderby='+orderby+"&order="+order).then(response => {
+        axios.get('https://csgeeks-blog-api.onrender.com/blog/posts?author='+author+'&orderby='+orderby+"&order="+order).then(response => {
             // console.log(response.data);
             if(response.data.success&&response.data.articles.length>0){
                 if(searchString)
@@ -511,7 +511,7 @@ function getData(tag=undefined,author=undefined,orderby='created',order='desc',s
                     <div class="sk-wave-rect"></div>
                 </div><br><br><br>
                 `;
-                query = `https://redrangerpostgres1.herokuapp.com/blog/posts?search=`+searchString+`&`+`tag=`+tag+`&orderby=`+orderby+`&order=`+order
+                query = `https://csgeeks-blog-api.onrender.com/blog/posts?search=`+searchString+`&`+`tag=`+tag+`&orderby=`+orderby+`&order=`+order
                 // console.log('formdata-> '+searchString)
             }
             else{
@@ -524,7 +524,7 @@ function getData(tag=undefined,author=undefined,orderby='created',order='desc',s
                     <div class="sk-wave-rect"></div>
                 </div><br><br><br>
                 `;
-                query = `https://redrangerpostgres1.herokuapp.com/blog/posts?tag=`+tag+`&orderby=`+orderby+`&order=`+order
+                query = `https://csgeeks-blog-api.onrender.com/blog/posts?tag=`+tag+`&orderby=`+orderby+`&order=`+order
             }
         }
         else{
@@ -537,7 +537,7 @@ function getData(tag=undefined,author=undefined,orderby='created',order='desc',s
                 <div class="sk-wave-rect"></div>
             </div><br><br><br>
             `;
-            query = `https://redrangerpostgres1.herokuapp.com/blog/posts?tag=`+tag+`&orderby=`+orderby+`&order=`+order
+            query = `https://csgeeks-blog-api.onrender.com/blog/posts?tag=`+tag+`&orderby=`+orderby+`&order=`+order
         }
         axios.get(query).then(response => {
             // console.log(response.data);
@@ -617,7 +617,7 @@ function getData(tag=undefined,author=undefined,orderby='created',order='desc',s
                 `;
                 var selText = $(".dropdown-menu a").first().text();
                 $("#dropdown-btn").html(selText);
-                query = `https://redrangerpostgres1.herokuapp.com/blog/posts?search=`+searchString+`&`+`orderby=`+orderby+`&order=`+order
+                query = `https://csgeeks-blog-api.onrender.com/blog/posts?search=`+searchString+`&`+`orderby=`+orderby+`&order=`+order
                 // console.log('formdata-> '+searchString);
             }
             else{
@@ -630,7 +630,7 @@ function getData(tag=undefined,author=undefined,orderby='created',order='desc',s
                     <div class="sk-wave-rect"></div>
                 </div><br><br><br>
                 `;
-                query = `https://redrangerpostgres1.herokuapp.com/blog/posts?`+`orderby=`+orderby+`&order=`+order
+                query = `https://csgeeks-blog-api.onrender.com/blog/posts?`+`orderby=`+orderby+`&order=`+order
             }
         }else{
             document.getElementById('d-2').innerHTML=`
@@ -642,7 +642,7 @@ function getData(tag=undefined,author=undefined,orderby='created',order='desc',s
                 <div class="sk-wave-rect"></div>
             </div><br><br><br>
             `;
-            query = `https://redrangerpostgres1.herokuapp.com/blog/posts?`+`orderby=`+orderby+`&order=`+order
+            query = `https://csgeeks-blog-api.onrender.com/blog/posts?`+`orderby=`+orderby+`&order=`+order
         }
         var selText = $(".dropdown-menu a").first().text();
         $("#dropdown-btn").html(selText);
@@ -708,7 +708,7 @@ const postData = () => {
         data.append('content',content);
         data.append('author',author);
     }
-    axios.post('https://redrangerpostgres1.herokuapp.com/blog/post',data,{
+    axios.post('https://csgeeks-blog-api.onrender.com/blog/post',data,{
         headers:{
             'C_AUTH':'?Rkqj98_hNV77aR67MRQhXz6_WC7XApXdG8@'
         }
@@ -721,7 +721,7 @@ const postData = () => {
     });
 };
 const delData = () => {
-    axios.post('https://redrangerpostgres1.herokuapp.com/blog/post/delete',undefined,{
+    axios.post('https://csgeeks-blog-api.onrender.com/blog/post/delete',undefined,{
         headers:{
             'C_AUTH':'?Rkqj98_hNV77aR67MRQhXz6_WC7XApXdG8@'
         }

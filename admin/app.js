@@ -14,10 +14,10 @@ window.onload=()=>{
 const loginpageload =()=>{
     token=getCookie('access_token_cookie')
     if(token){
-        var query = 'https://redrangerpostgres1.herokuapp.com/blog/login/check?token='+token;
+        var query = 'https://csgeeks-blog-api.onrender.com/blog/login/check?token='+token;
     }
     else
-        var query = 'https://redrangerpostgres1.herokuapp.com/blog/login/check';
+        var query = 'https://csgeeks-blog-api.onrender.com/blog/login/check';
     axios.get(query).then(res=>{
         // console.log(res);
         if(res.data['success']){
@@ -74,10 +74,10 @@ const login=()=>{
     data.append('password',pass);
     // console.log(token)
     if(token){
-        var query = 'https://redrangerpostgres1.herokuapp.com/blog/login?token='+token;
+        var query = 'https://csgeeks-blog-api.onrender.com/blog/login?token='+token;
     }
     else
-        var query = 'https://redrangerpostgres1.herokuapp.com/blog/login';
+        var query = 'https://csgeeks-blog-api.onrender.com/blog/login';
     axios.post(query,data).then(res=>{
         // console.log(res);
         if (res.data['token'])
@@ -134,15 +134,15 @@ const login=()=>{
 };
 const logout=()=>{
     if(token){
-        var query = 'https://redrangerpostgres1.herokuapp.com/blog/login/check?token='+token;
+        var query = 'https://csgeeks-blog-api.onrender.com/blog/login/check?token='+token;
     }
     else
-        var query = 'https://redrangerpostgres1.herokuapp.com/blog/login/check';
+        var query = 'https://csgeeks-blog-api.onrender.com/blog/login/check';
     axios.get(query).then(res=>{
         // console.log(res)
         if(res.data['success']){
             clearTimeout(timedRedirect);
-            var query = 'https://redrangerpostgres1.herokuapp.com/blog/logout?token='+token;
+            var query = 'https://csgeeks-blog-api.onrender.com/blog/logout?token='+token;
             axios.get(query).then(res=>{
 
             }).catch(res=>{
@@ -166,7 +166,7 @@ const logout=()=>{
     })
 }
 const getData = () => {
-    axios.get('https://redrangerpostgres1.herokuapp.com/blog/posts').then(response => {
+    axios.get('https://csgeeks-blog-api.onrender.com/blog/posts').then(response => {
         // console.log(response['data']);
         if(response['data']['articles']['length']>0){
             for (let index = 0; index < response['data']['articles']['length'] ; index++) {
@@ -182,17 +182,17 @@ const getDataForUpdate = () => {
     token=getCookie('access_token_cookie')
     //
     if(token){
-        var query = 'https://redrangerpostgres1.herokuapp.com/blog/login/check?token='+token;
+        var query = 'https://csgeeks-blog-api.onrender.com/blog/login/check?token='+token;
     }
     else
-        var query = 'https://redrangerpostgres1.herokuapp.com/blog/login/check';
+        var query = 'https://csgeeks-blog-api.onrender.com/blog/login/check';
     axios.get(query).then(res=>{
         // console.log(res);
         if(res.data['success']){
             if(!res.data['admin'])
-                query='https://redrangerpostgres1.herokuapp.com/blog/posts?orderby=_id&order=asc&token='+token;
+                query='https://csgeeks-blog-api.onrender.com/blog/posts?orderby=_id&order=asc&token='+token;
             else
-                query='https://redrangerpostgres1.herokuapp.com/blog/posts?orderby=_id&order=asc';
+                query='https://csgeeks-blog-api.onrender.com/blog/posts?orderby=_id&order=asc';
             axios.get(query).then(response => {
                 // console.log(response['data']);
                 if(response.data.success&&response.data.articles.length>0){
@@ -238,17 +238,17 @@ const getPostForUpdate = (id) => {
     token=getCookie('access_token_cookie');
     //
     if(token){
-        var query = 'https://redrangerpostgres1.herokuapp.com/blog/login/check?token='+token;
+        var query = 'https://csgeeks-blog-api.onrender.com/blog/login/check?token='+token;
     }
     else
-    var query = 'https://redrangerpostgres1.herokuapp.com/blog/login/check';
+    var query = 'https://csgeeks-blog-api.onrender.com/blog/login/check';
     axios.get(query).then(res=>{
         // console.log(res);
         if(res.data['success']){
             // document.getElementById('d-1').innerHTML=`
             
             // `;
-            axios.get('https://redrangerpostgres1.herokuapp.com/blog/post?id='+id).then(response => {
+            axios.get('https://csgeeks-blog-api.onrender.com/blog/post?id='+id).then(response => {
                 if(response.data.success){
                     console.log(response.data);
                     description = (response.data.article.description)?response.data.article.description:'';
@@ -315,10 +315,10 @@ const getPostForUpdate = (id) => {
 const getForCreate = (id) => {
     token=getCookie('access_token_cookie');
     if(token){
-        var query = 'https://redrangerpostgres1.herokuapp.com/blog/login/check?token='+token;
+        var query = 'https://csgeeks-blog-api.onrender.com/blog/login/check?token='+token;
     }
     else
-        var query = 'https://redrangerpostgres1.herokuapp.com/blog/login/check';
+        var query = 'https://csgeeks-blog-api.onrender.com/blog/login/check';
     axios.get(query).then(res=>{
         // console.log(res);
         if(res.data['success']){
@@ -403,7 +403,7 @@ const postData = () => {
             data.append('thumbnail',thumbnail);
             data.append('tags',tags);
         }
-        axios.post('https://redrangerpostgres1.herokuapp.com/blog/create',data,{
+        axios.post('https://csgeeks-blog-api.onrender.com/blog/create',data,{
             headers:{
                 'C_AUTH':'?Rkqj98_hNV77aR67MRQhXz6_WC7XApXdG8@'
             }
@@ -461,9 +461,9 @@ const updateData = (id) => {
             data.append('tags',tags);
         }
         if(token)
-            query='https://redrangerpostgres1.herokuapp.com/blog/update?id='+id+'&token='+token;
+            query='https://csgeeks-blog-api.onrender.com/blog/update?id='+id+'&token='+token;
         else
-            query='https://redrangerpostgres1.herokuapp.com/blog/update?id='+id;
+            query='https://csgeeks-blog-api.onrender.com/blog/update?id='+id;
         axios.post(query,data,{
             headers:{
                 'C_AUTH':'?Rkqj98_hNV77aR67MRQhXz6_WC7XApXdG8@'
@@ -500,10 +500,10 @@ const updateData = (id) => {
 loadForDelAll=()=>{
     token=getCookie('access_token_cookie');
     if(token){
-        var query = 'https://redrangerpostgres1.herokuapp.com/blog/login/check?token='+token;
+        var query = 'https://csgeeks-blog-api.onrender.com/blog/login/check?token='+token;
     }
     else
-        var query = 'https://redrangerpostgres1.herokuapp.com/blog/login/check';
+        var query = 'https://csgeeks-blog-api.onrender.com/blog/login/check';
     axios.get(query).then(res=>{
         // console.log(res);
         if(res.data['success']){
@@ -533,7 +533,7 @@ loadForDelAll=()=>{
     });
 }
 const delData = () => {
-    axios.post('https://redrangerpostgres1.herokuapp.com/blog/post/delete',undefined,{
+    axios.post('https://csgeeks-blog-api.onrender.com/blog/post/delete',undefined,{
         headers:{
             'C_AUTH':'?Rkqj98_hNV77aR67MRQhXz6_WC7XApXdG8@'
         }
@@ -555,17 +555,17 @@ const delData = () => {
 const showBeforeDelById = () => {
     token=getCookie('access_token_cookie');
     if(token){
-        var query = 'https://redrangerpostgres1.herokuapp.com/blog/login/check?token='+token;
+        var query = 'https://csgeeks-blog-api.onrender.com/blog/login/check?token='+token;
     }
     else
-        var query = 'https://redrangerpostgres1.herokuapp.com/blog/login/check';
+        var query = 'https://csgeeks-blog-api.onrender.com/blog/login/check';
     axios.get(query).then(res=>{
         // console.log(res);
         if(res.data['success']){
             if(!res.data['admin']){
-                query='https://redrangerpostgres1.herokuapp.com/blog/posts?orderby=_id&order=asc&author='+res.data['author'];
+                query='https://csgeeks-blog-api.onrender.com/blog/posts?orderby=_id&order=asc&author='+res.data['author'];
             }else{
-                query='https://redrangerpostgres1.herokuapp.com/blog/posts?orderby=_id&order=asc';
+                query='https://csgeeks-blog-api.onrender.com/blog/posts?orderby=_id&order=asc';
             }
 
             axios.get(query).then(response => {
@@ -618,10 +618,10 @@ const showBeforeDelById = () => {
 const delDataById = () => {
     token=getCookie('access_token_cookie');
     if(token){
-        var query = 'https://redrangerpostgres1.herokuapp.com/blog/login/check?token='+token;
+        var query = 'https://csgeeks-blog-api.onrender.com/blog/login/check?token='+token;
     }
     else
-        var query = 'https://redrangerpostgres1.herokuapp.com/blog/login/check';
+        var query = 'https://csgeeks-blog-api.onrender.com/blog/login/check';
     axios.get(query).then(res=>{
         // console.log(res);
         if(res.data['success']){
@@ -629,13 +629,13 @@ const delDataById = () => {
             if(!res.data['admin']){
                 if(form.id.value){
                     var id=form.id.value;
-                    axios.get('https://redrangerpostgres1.herokuapp.com/blog/post?id='+id).then(response => {
+                    axios.get('https://csgeeks-blog-api.onrender.com/blog/post?id='+id).then(response => {
                         if(response.data.success){
                             if(res.data['author']!=response.data.article.author){
                                 // document.getElementById('d-1').innerHTML=`(can't delete posts of another author please try again...)`;
                                 alert(`(can't delete posts of another author please try again...)`);
                             }else{
-                                axios.post('https://redrangerpostgres1.herokuapp.com/blog/post/delete?id='+id+'&token='+token).then(response => {
+                                axios.post('https://csgeeks-blog-api.onrender.com/blog/post/delete?id='+id+'&token='+token).then(response => {
                                     // console.log(response['data']);
                                     alert(JSON.stringify(response['data']));
                                     showBeforeDelById();
@@ -656,9 +656,9 @@ const delDataById = () => {
             }else{
                 if (form.id.value) {
                     var id = form.id.value;
-                    axios.get('https://redrangerpostgres1.herokuapp.com/blog/post?id='+id).then(response => {
+                    axios.get('https://csgeeks-blog-api.onrender.com/blog/post?id='+id).then(response => {
                         if(response.data.success){
-                            axios.post('https://redrangerpostgres1.herokuapp.com/blog/post/delete?id='+id+'&token='+token).then(response => {
+                            axios.post('https://csgeeks-blog-api.onrender.com/blog/post/delete?id='+id+'&token='+token).then(response => {
                                 // console.log(response['data']);
                                 if(response.data.success) {
                                     document.getElementById('d-1').innerHTML=`

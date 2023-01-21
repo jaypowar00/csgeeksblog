@@ -44,7 +44,7 @@ function getData(id){
                 <div class="sk-wave-rect"></div>
             </div><br><br><br>
             `;
-    axios.get('https://redrangerpostgres1.herokuapp.com/blog/post?id='+id).then(response => {
+    axios.get('https://csgeeks-blog-api.onrender.com/blog/post?id='+id).then(response => {
         if(response['data']['success']){
             document.getElementById('d-2').innerHTML=``;
             tags = response.data.article.tags;
