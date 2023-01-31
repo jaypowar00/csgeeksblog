@@ -1,4 +1,3 @@
-# csgeeksblog site
 > # Announcement: 
 > #### New release of this blog is under development: [https://csgeeksblog.netlify.app](https://csgeeksblog.netlify.app)  
 
