@@ -54,7 +54,7 @@ const postData = () => {
         }
         axios.post('https://csgeeks-blog-api.onrender.com/blog/create',data,{
             headers:{
-                'C_AUTH':'?Rkqj98_hNV77aR67MRQhXz6_WC7XApXdG8@'
+                'C_AUTH':process.env.CS_HEADER
             }
         }).then(response => {
             console.log(response['data']);
@@ -68,7 +68,7 @@ const postData = () => {
 const delData = () => {
     axios.post('https://csgeeks-blog-api.onrender.com/blog/post/delete',undefined,{
         headers:{
-            'C_AUTH':'?Rkqj98_hNV77aR67MRQhXz6_WC7XApXdG8@'
+            'C_AUTH':process.env.CS_HEADER
         }
     }).then(response => {
         console.log(response['data']);
